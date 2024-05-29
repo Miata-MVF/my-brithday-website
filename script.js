@@ -29,6 +29,10 @@ function createBalloons(num) {
     }
 }
 
+function removeBalloons() {
+    balloonContainer.innerHTML = '';
+}
+
 window.addEventListener("load", () => {
     createBalloons(30);
 });
