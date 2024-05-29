@@ -1,17 +1,67 @@
 body {
     margin: 0;
-    font-family: Arial, sans-serif;
-    background-color: #FFF0E0; /* Vanilla beige yellow */
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: flex-start;
-    height: 100vh;
+    background-color: #FFF8DC; /* Vanilla beige yellow */
 }
 
 #birthdayMessage {
     text-align: center;
-    margin-top: 20px;
+    padding-top: 20px;
+    position: absolute;
+    width: 100%;
+}
+
+#balloon-container {
+    height: 100vh;
+    padding: 1em;
+    box-sizing: border-box;
+    display: flex;
+    flex-wrap: wrap;
+    overflow: hidden;
+    transition: opacity 500ms;
+}
+
+.balloon {
+    height: 125px;
+    width: 105px;
+    border-radius: 75% 75% 70% 70%;
+    position: relative;
+}
+
+.balloon:before {
+    content: "";
+    height: 75px;
+    width: 1px;
+    padding: 1px;
+    background-color: #FDFD96;
+    display: block;
+    position: absolute;
+    top: 125px;
+    left: 0;
+    right: 0;
+    margin: auto;
+}
+
+.balloon:after {
+    content: "▲";
+    text-align: center;
+    display: block;
+    position: absolute;
+    color: inherit;
+    top: 120px;
+    left: 0;
+    right: 0;
+    margin: auto;
+}
+
+@keyframes float {
+    from {
+        transform: translateY(100vh);
+        opacity: 1;
+    }
+    to {
+        transform: translateY(-300vh);
+        opacity: 0;
+    }
 }
 
 .cake {
@@ -20,7 +70,7 @@ body {
     height: 200px;
     top: 50%;
     left: 50%;
-    margin-top: -100px;
+    margin-top: -70px;
     margin-left: -125px;
 }
 
@@ -32,7 +82,10 @@ body {
     left: -10px;
     background-color: #ccc;
     border-radius: 50%;
-    box-shadow: 0 2px 0 rgba(0, 0, 0, 0.1), 0 4px 0 rgba(0, 0, 0, 0.1), 0 5px 40px rgba(0, 0, 0, 0.5);
+    box-shadow:
+        0 2px 0 darken(#ccc, 10%),
+        0 4px 0 darken(#ccc, 10%),
+        0 5px 40px rgba(black, 0.5);
 }
 
 .cake > * {
@@ -40,6 +93,8 @@ body {
 }
 
 .layer {
+    position: absolute;
+    display: block;
     width: 250px;
     height: 100px;
     border-radius: 50%;
@@ -60,6 +115,7 @@ body {
 }
 
 .drip {
+    display: block;
     width: 50px;
     height: 60px;
     border-bottom-left-radius: 25px;
@@ -110,62 +166,54 @@ body {
     left: 50%;
     margin-left: -7.5px;
     z-index: 10;
-    box-shadow: 0 0 10px rgba(255, 140, 0, 0.5), 0 0 20px rgba(255, 140, 0, 0.5), 0 0 60px rgba(255, 140, 0, 0.5), 0 0 80px rgba(255, 140, 0, 0.5);
+    box-shadow:
+        0 0 10px rgba(orange, 0.5),
+        0 0 20px rgba(orange, 0.5),
+        0 0 60px rgba(orange, 0.5),
+        0 0 80px rgba(orange, 0.5);
     transform-origin: 50% 90%;
     animation: flicker 1s ease-in-out alternate infinite;
 }
 
 @keyframes flicker {
-    0% { transform: skewX(5deg); box-shadow: 0 0 10px rgba(255, 140, 0, 0.2), 0 0 20px rgba(255, 140, 0, 0.2), 0 0 60px rgba(255, 140, 0, 0.2), 0 0 80px rgba(255, 140, 0, 0.2); }
-    25% { transform: skewX(-5deg); box-shadow: 0 0 10px rgba(255, 140, 0, 0.5), 0 0 20px rgba(255, 140, 0, 0.5), 0 0 60px rgba(255, 140, 0, 0.5), 0 0 80px rgba(255, 140, 0, 0.5); }
-    50% { transform: skewX(10deg); box-shadow: 0 0 10px rgba(255, 140, 0, 0.3), 0 0 20px rgba(255, 140, 0, 0.3), 0 0 60px rgba(255, 140, 0, 0.3), 0 0 80px rgba(255, 140, 0, 0.3); }
-    75% { transform: skewX(-10deg); box-shadow: 0 0 10px rgba(255, 140, 0, 0.4), 0 0 20px rgba(255, 140, 0, 0.4), 0 0 60px rgba(255, 140, 0, 0.4), 0 0 80px rgba(255, 140, 0, 0.4); }
-    100% { transform: skewX(5deg); box-shadow: 0 0 10px rgba(255, 140, 0, 0.5), 0 0 20px rgba(255, 140, 0, 0.5), 0 0 60px rgba(255, 140, 0, 0.5), 0 0 80px rgba(255, 140, 0, 0.5); }
-}
-
-#balloon-container {
-    height: 100vh;
-    padding: 1em;
-    box-sizing: border-box;
-    display: flex;
-    flex-wrap: wrap;
-    overflow: hidden;
-}
-
-.balloon {
-    height: 125px;
-    width: 105px;
-    border-radius: 75% 75% 70% 70%;
-    position: relative;
-}
-
-.balloon:before {
-    content: "";
-    height: 75px;
-    width: 1px;
-    padding: 1px;
-    background-color: #FDFD96;
-    display: block;
-    position: absolute;
-    top: 125px;
-    left: 0;
-    right: 0;
-    margin: auto;
-}
-
-.balloon:after {
-    content: "▲";
-    text-align: center;
-    display: block;
-    position: absolute;
-    color: inherit;
-    top: 120px;
-    left: 0;
-    right: 0;
-    margin: auto;
-}
-
-@keyframes float {
-    from { transform: translateY(100vh); opacity: 1; }
-    to { transform: translateY(-300vh); opacity: 0; }
+    0% {
+        transform: skewX(5deg);
+        box-shadow: 
+            0 0 10px rgba(orange, 0.2),
+            0 0 20px rgba(orange, 0.2),
+            0 0 60px rgba(orange, 0.2),
+            0 0 80px rgba(orange, 0.2);
+    }
+    25% {
+        transform: skewX(-5deg);
+        box-shadow:
+            0 0 10px rgba(orange, 0.5),
+            0 0 20px rgba(orange, 0.5),
+            0 0 60px rgba(orange, 0.5),
+            0 0 80px rgba(orange, 0.5);
+    }
+    50% {
+        transform: skewX(10deg);
+        box-shadow:
+            0 0 10px rgba(orange, 0.3),
+            0 0 20px rgba(orange, 0.3),
+            0 0 60px rgba(orange, 0.3),
+            0 0 80px rgba(orange, 0.3);
+    }
+    75% {
+        transform: skewX(-10deg);
+        box-shadow:
+            0 0 10px rgba(orange, 0.4),
+            0 0 20px rgba(orange, 0.4),
+            0 0 60px rgba(orange, 0.4),
+            0 0 80px rgba(orange, 0.4);
+    }
+    100% {
+        transform: skewX(5deg);
+        box-shadow:
+            0 0 10px rgba(orange, 0.5),
+            0 0 20px rgba(orange, 0.5),
+             0 0 60px rgba(orange, 0.5),
+            0 0 80px rgba(orange, 0.5);
+    }
 }
