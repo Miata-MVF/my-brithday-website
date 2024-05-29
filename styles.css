@@ -1,12 +1,14 @@
 body {
     margin: 0;
-    background-color: #FFF8DC; /* Vanilla beige yellow */
+    background-color: #F3E5AB; 
 }
 
 #birthdayMessage {
     text-align: center;
-    padding-top: 20px;
     position: absolute;
+    top: 50px; /* Adjust as needed */
+    left: 50%;
+    transform: translateX(-50%);
     width: 100%;
 }
 
@@ -213,7 +215,7 @@ body {
         box-shadow:
             0 0 10px rgba(orange, 0.5),
             0 0 20px rgba(orange, 0.5),
-             0 0 60px rgba(orange, 0.5),
+            0 0 60px rgba(orange, 0.5),
             0 0 80px rgba(orange, 0.5);
     }
 }
