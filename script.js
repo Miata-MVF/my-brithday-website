@@ -27,6 +27,7 @@ function createBalloons(num) {
         balloon.style.cssText = getRandomStyles();
         balloonContainer.append(balloon);
     }
+     console.log("Balloons created:", num);
 }
 
 function removeBalloons() {
