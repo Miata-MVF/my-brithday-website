@@ -19,7 +19,7 @@
     transform: translateX(-50%);
     width: 100%;
 }
-
+    
 
     #balloon-container {
         height: 100vh;
@@ -228,9 +228,41 @@
                 0 0 80px rgba(orange, 0.5);
         }
     }
+    .poem {
+    position: absolute;
+    top: 50%;
+    left: 10%;
+    transform: translateY(-50%);
+    width: 30%;
+    text-align: left;
+    padding: 20px;
+    background-color: #FFF;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+.poem h2 {
+    color: #7B020B; /* Match with candle color */
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
 </style>
 </head>
 <body>
+    
+<div id="birthdayMessage">
+    <h1>Happy Birthday!</h1>
+    <p>Wishing you a fantastic day filled with joy and laughter!</p>
+</div>
+<div class="poem">
+    <h2>A Birthday Poem</h2>
+    <p>Roses are red,</p>
+    <p>Violets are blue,</p>
+    <p>Today is your birthday,</p>
+    <p>And we're celebrating you!</p>
+</div>
+    
 <div id="birthdayMessage">
     <h1>Happy Birthday!</h1>
     <p>Wishing you a fantastic day filled with joy and laughter!</p>
