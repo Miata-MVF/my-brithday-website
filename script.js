@@ -20,4 +20,19 @@ function getRandomStyles() {
     `;
 }
 
-function createBallo
+function createBalloons(num) {
+    for (var i = num; i > 0; i--) {
+        var balloon = document.createElement("div");
+        balloon.className = "balloon";
+        balloon.style.cssText = getRandomStyles();
+        balloonContainer.append(balloon);
+    }
+}
+
+window.addEventListener("load", () => {
+    createBalloons(30);
+});
+
+window.addEventListener("click", () => {
+    removeBalloons();
+});
