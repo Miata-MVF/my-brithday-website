@@ -19,7 +19,7 @@ function getRandomStyles() {
     animation: float ${dur}s ease-in infinite
     `;
 }
-
+console.log("Before loop");
 function createBalloons(num) {
     for (var i = num; i > 0; i--) {
         var balloon = document.createElement("div");
